@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
+//import Image from 'next/image'
+import CountrySearchWithList from '../components/countrySearchWithList'
 import styles from '../styles/Home.module.css'
 
 const Home: NextPage = () => {
@@ -13,10 +14,16 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
+        
+        {/*
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
+        */}
 
+        <CountrySearchWithList/>
+        
+        {/*
         <p className={styles.description}>
           Get started by editing{' '}
           <code className={styles.code}>pages/index.js</code>
@@ -51,8 +58,10 @@ const Home: NextPage = () => {
             </p>
           </a>
         </div>
+        */}
       </main>
 
+      {/*
       <footer className={styles.footer}>
         <a
           href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
@@ -65,6 +74,7 @@ const Home: NextPage = () => {
           </span>
         </a>
       </footer>
+      */}
     </div>
   )
 }
