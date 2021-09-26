@@ -1,13 +1,13 @@
-import { ICountry } from "./country";
+import { Country } from "./country";
 
-export type CountriesResponse = ICountry[] | IErrorResponse
+export type CountriesResponse = Country[] | ErrorResponse
 
-export interface IErrorResponse {
+export interface ErrorResponse {
     success: boolean;
-    error: IError;
+    error: ErrorInformation;
 }
 
-export interface IError {
+interface ErrorInformation {
     code: number;
     type: string;
     info: string;
@@ -19,11 +19,11 @@ export enum HTTPStatus {
     success = 200,
 }
 
-export function makeErrorResponse(statusCode: HTTPStatus, type: string, info: string): IErrorResponse {
+export function makeErrorResponse(statusCode: HTTPStatus, type: string, info: string): ErrorResponse {
     return { success: false, error: { code: statusCode, type: type, info: info}}; 
 }
 
-export function isIErrorResponse(res?: CountriesResponse): res is IErrorResponse {
+export function isErrorResponse(res?: CountriesResponse): res is ErrorResponse {
     if (!res) {
         return false;
     }

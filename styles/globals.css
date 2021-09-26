@@ -14,3 +14,37 @@ a {
 * {
   box-sizing: border-box;
 }
+
+/* Table styles: https://dev.to/dcodeyt/creating-beautiful-html-tables-with-css-428l */
+
+table {
+  text-align: left;
+  border-collapse: collapse;
+  margin: 25px 0;
+  min-width: 400px;
+  /*
+  font-size: 0.9em;
+  font-family: sans-serif;
+  */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+thead tr {
+  background-color: #009879;
+  color: #ffffff;
+  text-align: left;
+}
+
+th, td {
+    padding: 8px 8px;
+}
+
+td img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+tr {
+  border-bottom: 1px solid #dddddd;
+}

@@ -1,39 +1,73 @@
-import { HTTPStatus, CountriesResponse, IErrorResponse, isIErrorResponse } from '../model/response';
+import { Country } from '../model/country';
+import { HTTPStatus, CountriesResponse, ErrorResponse, isErrorResponse } from '../model/response';
+import styles from '../styles/Home.module.css'
 
-interface ICountrySearchResultProps {
+interface CountrySearchResultProps {
     searchResult?: CountriesResponse;
 }
 
-const CountrySearchResult = ({ searchResult }: ICountrySearchResultProps) => {
+const CountrySearchResult = ({ searchResult }: CountrySearchResultProps) => {
     
+    //TODO: Split out error into its own control
+    let messageForNoResults: string = "";
     if (!searchResult) {
-        return null;
+        return <div className={styles.searchInstructions}>
+            <div>Use the search bar to find countries by:</div>
+            <ul>
+                <li>Partial match on the name</li>
+                <li>Exact name</li>
+                <li>2 or 3-character country code</li>
+            </ul>
+        </div>
     }
-    else if (isIErrorResponse(searchResult)) {
-        return <div>{composeErrorMessage(searchResult)}</div>;
-    } else if (searchResult.length < 1) {
-        return <div>{NO_COUNTRY_FOUND}</div>;
+    else if (isErrorResponse(searchResult)) {
+        messageForNoResults = composeErrorMessage(searchResult);
+    } else if (searchResult.length< 1) {
+        messageForNoResults = NO_COUNTRY_FOUND;
     }
+
+    if (messageForNoResults) {
+        return <div className={styles.noResultsMessage}>{messageForNoResults}</div>;
+    }
+
+    //TODO: more columns
+    //TODO: validate/filter data
 
     return (
     <table>
-        <tr>
-            <th>Country</th>
-        </tr>
-        { searchResult.map((country, index) => (
-        <tr>
-            <td key={index}>{country.name}</td>  {/* using index is bad style https://reactjs.org/docs/lists-and-keys.html#keys*/}
-        </tr>
-        ))}
+        <thead>
+            <tr>
+                <th></th>
+                <th>Country</th>
+                <th>Region</th>
+                <th>Alpha-2</th>
+                <th>Alpha-3</th>
+                {/*<th>Subregion</th>
+                <th>Population</th>
+                <th>Languages</th>*/}
+            </tr>
+        </thead>
+        { (searchResult as Country[]).map((country) => 
+            (<tr>
+                <td><img src={"https://www.countryflags.io/" + country.alpha2Code + "/flat/32.png"}/></td>
+                <td>{country.name}</td>
+                <td>{country.region}</td>
+                <td>{country.alpha2Code}</td>
+                <td>{country.alpha3Code}</td>
+                {/*<td>{country.subregion}</td>
+                <td>{country.population}</td>
+                <td>{country.languages?.toString()}</td>*/} 
+            </tr>)
+        )}
     </table>)
 };
 
-function composeErrorMessage(response: IErrorResponse): string {
+function composeErrorMessage(response: ErrorResponse): string {
     switch (response.error.code) {
         case HTTPStatus.notFound: 
-            return "No country found.";
+            return NO_COUNTRY_FOUND;
         default:
-            return "Error retrieving countries."
+            return "Error retrieving countries: " + response.error.info;
     }
 }
 

@@ -1,17 +1,15 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { CountryFile } from "../../../../datasource/country-file";
-import { returnCountriesResponse, validateAndParseRequest as requestValidation } from '../../../../routing/request-response';
+import { getDataSource, returnCountriesResponse, validateAndParseRequest } from '../../../../api-helper/server';
 import { CountriesResponse } from "../../../../model/response";
 
 export default async (req: NextApiRequest, res: NextApiResponse<CountriesResponse>): Promise<void> => {
     
-    const { valid, queryString: partialName } = requestValidation(req.query.code, req, res);
+    const { valid, queryString: partialName } = validateAndParseRequest(req.query.partial, req, res);
     if (!valid) {
         return;
     }
-
-    const countryAPI = new CountryFile();
-    const countriesResponse = await countryAPI.fetchByPartialName(partialName);
     
+    const countriesResponse = await getDataSource().fetchByPartialName(partialName);
+
     returnCountriesResponse(res, countriesResponse);
 }

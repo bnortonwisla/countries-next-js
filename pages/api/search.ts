@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { CountryFile } from "../../datasource/country-file";
-import { returnCountriesResponse } from '../../routing/request-response';
+import { returnCountriesResponse } from '../../api-helper/server';
 import { HTTPStatus, CountriesResponse, isIErrorResponse } from "../../model/response";
 
 export default async (req: NextApiRequest, res: NextApiResponse<CountriesResponse>): Promise<void> => {

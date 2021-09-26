@@ -1,47 +1,61 @@
-import { FormEvent, useState } from "react";
-import { getCountryListFromServer } from "../routing/client-wrapper";
+import { FormEvent, useRef, useState } from "react";
+import { getCountryListFromServer, SearchType } from "../api-helper/client";
 
 interface ICountrySearchProps {
     setSearchResult: Function;
 }
 
 const CountrySearchForm = ({setSearchResult: setCountries}: ICountrySearchProps) => {
-    const ghostText = "Search by country name or code";
     const searchLabel = "Search";
-    const clearLabel = "Clear";
+    const reseatLabel = "Reset";
 
-    const [inputState, setInputState] = useState("");
+    const searchTypeDefault = SearchType.partialName;
+    const inputDefault = "";
     const clearSearchResults = () => setCountries(undefined);
-    
+
+    const [searchTypeState, setSearchTypeState] = useState(searchTypeDefault)
+    const [inputState, setInputState] = useState(inputDefault);
+    const inputRef = useRef(null);
+
     const handleFormSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();       
         
         if (isEmptyOrWhiteSpace(inputState)) {
             clearSearchResults();
         } else {
-            getCountryListFromServer(inputState).then((value) => setCountries(value));
+            getCountryListFromServer(inputState, searchTypeState).then((value) => setCountries(value));
         }
     };
 
     const handleFormReset = (event: FormEvent<HTMLFormElement>) => {
         clearSearchResults();
-        setInputState("");
+        setInputState(inputDefault);
+        setSearchTypeState(searchTypeDefault);
+        (inputRef?.current as HTMLElement | null)?.focus();  //Get around current recognized as never type
     }
 
     return ( 
         <form 
             onSubmit={handleFormSubmit}
-            onReset={handleFormReset}
+            onReset={handleFormReset}>
+            <select
+                multiple={false}
+                value={searchTypeState}
+                onChange={e => setSearchTypeState(e.target.value as SearchType)}
             >
+                <option value={SearchType.partialName}>Name</option>
+                <option value={SearchType.fullName}>Exact Name</option>
+                <option value={SearchType.code}>Code</option>
+            </select>
             <input 
                 type="text" 
-                placeholder={ghostText}
-                size={ghostText.length}
+                size={30}
                 value = {inputState}
                 onChange={e => setInputState(e.target.value)}
+                ref={inputRef}
             />  {/*Note: type search is tricky to work with x/esc behavior*/}
             <button type="submit">{searchLabel}</button>
-            <button type="reset">{clearLabel}</button>
+            <button type="reset">{reseatLabel}</button>
         </form>);
 }    
 
