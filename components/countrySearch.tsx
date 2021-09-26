@@ -5,7 +5,7 @@ import { useState } from "react";
 const CountrySearch = () => {
 
     const [ searchResult, setSearchResult] = useState();
-    //TODO: handle long results
+    //TODO: handle large results
     return (
         <div>
             <CountrySearchForm
