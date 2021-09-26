@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { MockCountryAPI } from "../../api-helper/MockCountryAPI";
+import { MockCountryAPI } from "../../api-helper/api-mock";
 import { HTTPStatus, CountriesResponse, isIErrorResponse } from "../../model/response";
 
 export default async (req: NextApiRequest, res: NextApiResponse<CountriesResponse>): Promise<void> => {
