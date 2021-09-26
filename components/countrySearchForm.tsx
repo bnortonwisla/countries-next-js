@@ -1,5 +1,5 @@
 import { FormEvent, useState } from "react";
-import { getCountryListFromServer } from "../api-helper/client-wrapper";
+import { getCountryListFromServer } from "../routing/client-wrapper";
 
 interface ICountrySearchProps {
     setSearchResult: Function;

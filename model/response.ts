@@ -14,8 +14,13 @@ export interface IError {
 }
 
 export enum HTTPStatus {
+    badRequest = 400,
     notFound = 404,
     success = 200,
+}
+
+export function makeErrorResponse(statusCode: HTTPStatus, type: string, info: string): IErrorResponse {
+    return { success: false, error: { code: statusCode, type: type, info: info}}; 
 }
 
 export function isIErrorResponse(res?: CountriesResponse): res is IErrorResponse {
