@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 //import Image from 'next/image'
-import CountrySearchWithList from '../components/countrySearchWithList'
+import CountrySearch from '../components/countrySearch'
 import styles from '../styles/Home.module.css'
 
 const Home: NextPage = () => {
@@ -21,7 +21,7 @@ const Home: NextPage = () => {
         </h1>
         */}
 
-        <CountrySearchWithList/>
+        <CountrySearch/>
         
         {/*
         <p className={styles.description}>
