@@ -45,7 +45,7 @@ export function returnCountriesResponse(res: NextApiResponse<CountriesResponse>,
     
     } else if (countriesResponse.length < 1) {
         const code = HTTPStatus.notFound;
-        res.status(code).json(makeErrorResponse(code, "Data source returned empty list.", "not found"));
+        res.status(code).json(makeErrorResponse(code, "not found", "Data source returned empty list."));
     
     } else {       
         res.status(HTTPStatus.success).json(countriesResponse);
