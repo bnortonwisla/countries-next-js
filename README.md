@@ -55,9 +55,10 @@ Functional
 
 Code style
 *unit tests lacking
-*searchResults: split error messages and table into 2+ controls
-*css: change file organization, use variables
 *validation of external API results
+*searchResults: split error messages and table into 2+ controls
+*validateAndParseRequest: split into single task functions
+*css: change file organization, use variables
 *img tag: resolve linter warning by using Image for flag
 
 # Original Next.js README
