@@ -11,7 +11,9 @@ Notes:
 This is a single-page application built with [Next.js] using [React] and [Node.js], bootstrapped with [create-next-app].
 
 ## Using the App
-* Install [Node.js] and node package manager
+* Check out this code
+* Install [Node.js] and [npm]
+* Run npm install in app directory 
 * Run the server from terminal (from app directory)
     * Development server: npm run dev
     * Release: npm run build > npm run start
