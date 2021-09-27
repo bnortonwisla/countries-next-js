@@ -1,9 +1,12 @@
+/**
+ * Internal (app) API end point for country code search
+ */
+
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { CountryFile } from "../../../datasource/obsolete-country-file";
 import { getDataSource, returnCountriesResponse, validateAndParseRequest } from '../../../api-helper/server';
 import { CountriesResponse } from "../../../model/response";
 
-export default async (req: NextApiRequest, res: NextApiResponse<CountriesResponse>): Promise<void> => {
+export default async function handleCode(req: NextApiRequest, res: NextApiResponse<CountriesResponse>): Promise<void> {
     
     const { valid, queryString: code } = validateAndParseRequest(req.query.code, req, res);
     if (!valid) {

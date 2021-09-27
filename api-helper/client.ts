@@ -1,3 +1,7 @@
+/**
+ * Code to facilite calls to country search internal API (routes) from client
+ */
+
 import { CountriesResponse, HTTPStatus, makeErrorResponse } from "../model/response";
 
 export enum SearchType {

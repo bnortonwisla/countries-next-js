@@ -1,3 +1,8 @@
+/**
+ * Types and functions for modeling country objects retrieved from the API
+ * Shared with client since the model isn't altered by internal API before passing up  
+ */
+
 export interface Country {
   name: string;
   topLevelDomain?: string[];

@@ -1,3 +1,10 @@
+/**
+ * Classes for calling into the external countries API or file extract of its contents
+ * These work be getting all countries from API/file and then filtering
+ * 
+ * Which API used is controlled by USE_FILE_API constant in api-helper/server.ts
+ */
+
 import allCountries from "../data/allCountries.json"
 import { CountriesResponse, isErrorResponse } from "../model/response";
 

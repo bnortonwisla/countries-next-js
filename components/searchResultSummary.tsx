@@ -1,6 +1,9 @@
+/**
+ * React component showing summarized search results
+ */
+
 import { Country } from "../model/country";
 import { CountriesResponse, isErrorResponse } from "../model/response";
-import search from "../pages/api/search";
 
 interface SearchResultSummaryProps {
     searchResult?: CountriesResponse;
@@ -16,8 +19,10 @@ const SearchResultSummary = ({ searchResult }: SearchResultSummaryProps) => {
     return (
         <ul>
             <li>{"Total: " + searchResult.length}</li>
-            {regionSummary.map(regionInfo =>
-                (<li>{regionInfo.value + ": " + regionInfo.count}</li>)
+            {regionSummary.map((regionInfo, index) =>
+                (<li key={index}>
+                    {regionInfo.value + ": " + regionInfo.count}
+                </li>)
             )}
         </ul>
     );

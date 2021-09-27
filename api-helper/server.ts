@@ -1,3 +1,10 @@
+/**
+ * Code used by server (internal) API routes to process requests and respond
+ * Calls into DataSources, which handle calling external API/file 
+ * 
+ * Uses file source when USE_FILE_API = true, external API source otherwise
+ */
+
 import { NextApiRequest, NextApiResponse } from "next";
 import { CountryFile, CountryAPI, DataSource } from "../datasource/country-filtered";
 import { CountriesResponse, HTTPStatus, isErrorResponse, makeErrorResponse } from "../model/response";

@@ -1,20 +1,16 @@
-/*
-.container {
-  min-height: 100vh;
-  height: 100vh;
-}*/
+/**
+ * Non-global styles referencing classes (at least partially)
+ */
 
 .navbar {
   list-style-type: none;
   margin: 0;
   padding: 0;
   display: block;
-  background-color: #009879; /*doubling this avoids inconsistency with search background*/
+  background-color: #009879;
   top: 0;
   width: 100%;
   position: fixed;
-  /* position: -webkit-sticky; /* Safari */
-  /* position: sticky; */
 }
 
 .navbar .navbarTitle {
@@ -66,8 +62,8 @@
 
 .footer {
   width: 100%;
-  border-top: 1px solid lightgray; /* #dddddd18;*/
-  background-color: #f8f8f8; /*doubling this avoids inconsistency with search background*/
+  border-top: 1px solid lightgray;
+  background-color: #f8f8f8;
   margin: 0;
   padding: 0;
   bottom: 0;
