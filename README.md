@@ -1,3 +1,4 @@
+## Introduction
 Country Search was created to allow a user to search for countries and view information about them. It's key features are:
 * Search box supporting partial name match, exact name match, exact country code match (2 or 3 character)
 * Table showing country name and other information
@@ -7,7 +8,7 @@ Notes:
 * This project deviate from the original requirements. Details below.
 * No project is perfect. Known issues and improvements below.
 
-This is a single-page application built with [Next.js] using [React] and [Node.js]. 
+This is a single-page application built with [Next.js] using [React] and [Node.js], bootstrapped with [create-next-app].
 
 ## Using the App
 * Install [Node.js] and node package manager
