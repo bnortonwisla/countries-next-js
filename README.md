@@ -10,11 +10,15 @@ Notes:
 This is a single-page application built with [Next.js] using [React] and [Node.js]. 
 
 ## Using the App
-Search page: https://localhost:3000/
-API routes:
-* Partial name search: api/name/partial/< part of country name>
-* Exact name search: api/name/full/< full country name>
-* Country code search: api/code/<2 or 3 character country name>
+* Install [Node.js] and node package manager
+* Run the server from terminal (from app directory)
+    * Development server: npm run dev
+    * Release: npm run build > npm run start
+* Search page: https://localhost:3000/ (the main/only page)
+* API routes:
+    * Partial name search: api/name/partial/< part of country name>
+    * Exact name search: api/name/full/< full country name>
+    * Country code search: api/code/<2 or 3 character country name>
 
 
 ## Requirements
@@ -38,11 +42,6 @@ API routes:
     * **Exception:** flag image, subregion, population, and languages are not returned by the API. I'm showing the flag image in alternate way, but the rest are  not included in the results.
 * At the bottom of the page show the total number of countries, and list all regions and subregions contained in the results with the number of times it appeared.
     * **Exception:** subregions are not returned by the API and not included in the summary
-
-## Setup
-Requires: [Node.js] and node package manager
-Run the development server: npm run dev (from app directory)
-Run release: npm run build > npm run start (from app directory)
 
 ## Known Issues and Improvements
 Functional
