@@ -9,6 +9,14 @@ Notes:
 
 This is a single-page application built with [Next.js] using [React] and [Node.js]. 
 
+## Using the App
+Search page: https://localhost:3000/
+API routes:
+* Partial name search: api/name/partial/< part of country name>
+* Exact name search: api/name/full/< full country name>
+* Country code search: api/code/<2 or 3 character country name>
+
+
 ## Requirements
 * Use the REST Countries API as your data source (https://restcountries.eu/)
     * Exception: this API has been sold and undergone several changes
@@ -36,13 +44,6 @@ Requires: [Node.js] and node package manager
 Run the development server: npm run dev (from app directory)
 Run release: npm run build > npm run start (from app directory)
 
-## Using the App
-Search page: https://localhost:3000/
-API routes:
-* Partial name search: api/name/partial/<part of country name>
-* Exact name search: api/name/full/<full country name>
-* Country code search: api/code/<2 or 3 character country name>
-
 ## Known Issues and Improvements
 Functional
 * accessibility: need handling for search form at least, not broadly considered or tested
@@ -58,6 +59,7 @@ Code style
 * validation of external API results
 * searchResults: split error messages and table into 2+ controls
 * validateAndParseRequest: split into single task functions
+* use absolute reference shortcuts to clean up file references
 * css: change file organization, use variables
 * img tag: resolve linter warning by using Image for flag
 
