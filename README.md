@@ -57,7 +57,7 @@ Functional
 * only serve relevant properties from internal API instead of passing through from external API
 
 Code style
-* unit tests lacking
+* unit and integration tests lacking
 * validation of external API results
 * searchResults: split error messages and table into 2+ controls
 * validateAndParseRequest: split into single task functions
