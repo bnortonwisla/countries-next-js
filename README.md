@@ -29,7 +29,7 @@ This is a single-page application built with [Next.js] using [React] and [Node.j
     * **Exception:** this API has been sold and undergone several changes
         * End point is now located at https://countrylayer.com/ 
         * Several fields are no longer available 
-        * This API is limited in queries per month, so this app retrieves from a saved json file (data/allCountries.json) by default. This can be changed by setting the USE_FILE_API constant to false in api-helper/server.ts 
+        * This API is limited in queries per month, so this app retrieves from a saved json file (data/allCountries.json) by default. This can be changed by setting the USE_FILE_API constant to false in api-helper/server-request-utils.ts 
 * An HTML form input will accept the string of a country name or code.
 * An error message will be emitted if users submit the form without input or if the search yields no results.  
 * The form data must be submitted via JavaScript to a PHP server (or other backend server like Node) 
