@@ -48,7 +48,6 @@ This is a single-page application built with [Next.js] using [React] and [Node.j
 
 ## Known Issues and Improvements
 Functional
-* accessibility: need handling for search form at least, not broadly considered or tested
 * page history: missing, so back and forward buttons don't work as a user might expect
 * auto focus on search box
 * make search box UI nicer

@@ -3,24 +3,25 @@
  */
 
 import { FormEvent, useRef, useState } from "react";
-import { getCountryListFromServer, SearchType } from "../api-helper/client";
+import { getCountryListFromServer, SearchType } from "../api-helper/client-wrapper";
 
 interface SearchFormProps {
     setSearchResult: Function;
 }
 
 const SearchForm = ({setSearchResult: setCountries}: SearchFormProps) => {
-    const searchLabel = "Search";
-    const reseatLabel = "Reset";
 
+    //Default states
     const searchTypeDefault = SearchType.partialName;
     const inputDefault = "";
     const clearSearchResults = () => setCountries(undefined);
 
+    //React 
     const [searchTypeState, setSearchTypeState] = useState(searchTypeDefault)
     const [inputState, setInputState] = useState(inputDefault);
     const inputRef = useRef(null);
 
+    //Event handlers
     const handleFormSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();       
         
@@ -43,6 +44,7 @@ const SearchForm = ({setSearchResult: setCountries}: SearchFormProps) => {
             onSubmit={handleFormSubmit}
             onReset={handleFormReset}>
             <select
+                title="Specify the type of search being performed"
                 multiple={false}
                 value={searchTypeState}
                 onChange={e => setSearchTypeState(e.target.value as SearchType)}
@@ -53,13 +55,20 @@ const SearchForm = ({setSearchResult: setCountries}: SearchFormProps) => {
             </select>
             <input 
                 type="text" 
+                title="Enter text to search for using the selected type"
                 size={30}
                 value = {inputState}
                 onChange={e => setInputState(e.target.value)}
                 ref={inputRef}
             />  {/*Note: type search is tricky to work with x/esc behavior*/}
-            <button type="submit">{searchLabel}</button>
-            <button type="reset">{reseatLabel}</button>
+            <button 
+                type="submit"
+                title="Submit the search"
+            >Search</button>
+            <button 
+                type="reset"
+                title="Clear search results and reset to default search type"
+            >Reset</button>
         </form>);
 }    
 

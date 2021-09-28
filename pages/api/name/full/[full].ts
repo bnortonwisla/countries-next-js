@@ -3,7 +3,7 @@
  */
 
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { getDataSource, returnCountriesResponse, validateAndParseRequest } from '../../../../api-helper/server';
+import { getDataSource, returnCountriesResponse, validateAndParseRequest } from '../../../../api-helper/server-request-utils';
 import { CountriesResponse } from "../../../../model/response";
 
 export default async function handleFullName(req: NextApiRequest, res: NextApiResponse<CountriesResponse>): Promise<void> {

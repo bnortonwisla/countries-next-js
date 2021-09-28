@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders homepage unchanged 1`] = `
+<div>
+  <header>
+    <ul
+      className="navbar"
+    >
+      <li
+        className="navbarTitle"
+      >
+        Country Search
+      </li>
+      <li>
+        <form
+          onReset={[Function]}
+          onSubmit={[Function]}
+        >
+          <select
+            multiple={false}
+            onChange={[Function]}
+            title="Specify the type of search being performed"
+            value="partialName"
+          >
+            <option
+              value="partialName"
+            >
+              Name
+            </option>
+            <option
+              value="fullName"
+            >
+              Exact Name
+            </option>
+            <option
+              value="code"
+            >
+              Code
+            </option>
+          </select>
+          <input
+            onChange={[Function]}
+            size={30}
+            title="Enter text to search for using the selected type"
+            type="text"
+            value=""
+          />
+            
+          <button
+            title="Submit the search"
+            type="submit"
+          >
+            Search
+          </button>
+          <button
+            title="Clear search results and reset to default search type"
+            type="reset"
+          >
+            Reset
+          </button>
+        </form>
+      </li>
+    </ul>
+  </header>
+  <main
+    className="main"
+  >
+    <div
+      className="searchInstructions"
+    >
+      <div>
+        Use the search bar to find countries by:
+      </div>
+      <ul>
+        <li>
+          Partial match on the name
+        </li>
+        <li>
+          Exact name
+        </li>
+        <li>
+          2 or 3-character country code
+        </li>
+      </ul>
+    </div>
+  </main>
+  <footer
+    className="footer"
+  />
+</div>
+`;
