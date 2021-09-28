@@ -21,6 +21,7 @@ interface ErrorInformation {
 }
 
 export enum HTTPStatus {
+    internalServerError = 500,
     badRequest = 400,
     notFound = 404,
     success = 200,
